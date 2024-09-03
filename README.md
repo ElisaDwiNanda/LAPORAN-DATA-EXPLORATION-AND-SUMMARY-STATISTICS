@@ -107,6 +107,11 @@ for i, column in enumerate(numeric_cols, 1):<br/>
 plt.tight_layout()<br/>
 plt.show()<br/>
 
+- **plt.figure(figsize=(15,10))**: Mengatur ukuran dari figur plot.
+- **for i, column in enumerate(numeric_cols, 1)**: Iterasi untuk setiap kolom numerik, dimana setiap kolom akan diidentifikasi dan dipetakan ke subplot.
+- **sns.boxplot(y=df[column])**: Membuat box plot untuk setiap kolom numerik untuk mengidentifikasi outliers.
+- **plt.tight_layout()**: Mengatur tata letak subplot agar tidak saling tumpang tindih.
+- **plt.show()**: Menampilkan plot.
 
 
 - 
