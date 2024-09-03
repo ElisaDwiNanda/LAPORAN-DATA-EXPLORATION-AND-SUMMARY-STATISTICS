@@ -31,8 +31,83 @@ Analisis ini dilakukan menggunakan Python, dengan memanfaatkan library analisis 
 ## Pembahasan
 #### Eksplorasi Awal
 Eksplorasi awal adalah langkah penting dalam analisis data yang bertujuan untuk memahami struktur dan kualitas data sebelum melakukan analisis lebih lanjut. Dalam bagian ini, kami akan melakukan beberapa langkah utama untuk mengeksplorasi dataset Heart Disease UCI, termasuk menampilkan baris pertama dan terakhir dari dataset, memeriksa informasi dataset, dan mengevaluasi statistik deskriptif dasar serta nilai yang hilang.
-##### Import Library
-**import pandas as pd**
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
+##### 1. Import Library
+import pandas as pd<br/>
+import numpy as np<br/>
+import matplotlib.pyplot as plt<br/>
+import seaborn as sns<br/>
+
+- Pandas (pd): Untuk manipulasi dan analisis data dalam bentuk tabel (DataFrames).
+- NumPy (np): Untuk operasi matematika dan array numerik.
+- Matplotlib (plt): Untuk membuat visualisasi data seperti grafik dan plot.
+- Seaborn (sns): Untuk visualisasi statistik yang lebih estetis dan informatif, dibangun di atas Matplotlib.
+##### 2. Import Dataset
+fileLocation = r"C:\Data Mining\heart_disease_uci.csv" <br/>
+df = pd.read_csv(fileLocation)<br/>
+
+- fileLocation: Menyimpan lokasi file dataset dalam bentuk string. Dengan menggunakan r di awal string, path dianggap sebagai raw string sehingga karakter khusus seperti backslash tidak akan di-escape.
+- df = pd.read_csv(fileLocation): Membaca file CSV yang ada di fileLocation dan menyimpannya dalam variabel df sebagai DataFrame.
+##### 3. Menampilkan 5 Baris Pertama dan Terakhir
+Menampilkan baris pertama dan terakhir dari dataset membantu kita memahami struktur data dan memeriksa apakah data sudah sesuai dengan yang diharapkan.<br/>
+
+print("5 Baris Pertama:")<br/>
+print(df.head())<br/>
+
+
+print("\n5 Baris Terakhir:")<br/>
+print(df.tail())<br/>
+
+Hasil :<br/>
+![image](https://github.com/user-attachments/assets/71969ccb-f432-4bd7-8f08-c5d3f7e23d66)
+##### 4. Menampilkan Informasi Dataset
+Menampilkan informasi umum tentang dataset, seperti jumlah baris, kolom, tipe data, dan jumlah nilai non-missing di setiap kolom.<br/>
+
+print("\nInformasi Dataset:")<br/>
+print(df.info())<br/>
+
+Hasil :<br/>
+![image](https://github.com/user-attachments/assets/a3175e71-ea63-45d0-8221-0ecdf5d415db)
+Informasi ini memberikan gambaran tentang jumlah entri dalam dataset serta tipe data setiap kolom. Kita juga dapat memeriksa apakah ada nilai yang hilang.
+
+##### 5. Menampilkan Statistik Deskriptif Dasar
+Statistik deskriptif memberikan informasi ringkas tentang distribusi dan variasi data dalam setiap kolom numerik.<br/>
+
+print("\nStatistik Deskriptif Dasar:")<br/>
+print(df.describe())<br/>
+
+Hasil :<br/>
+![image](https://github.com/user-attachments/assets/17d80c74-cfb4-4323-a977-3e2ffeb993b3)
+Statistik deskriptif dasar ini mencakup rata-rata (mean), median, modus (mode), standar deviasi, dan rentang untuk setiap kolom numerik. Ini membantu dalam memahami distribusi data dan variasi antar variabel.
+
+##### 6. Mengevaluasi Nilai yang Hilang
+Nilai yang hilang atau missing values dapat mempengaruhi analisis data. Oleh karena itu, penting untuk memeriksa apakah ada nilai yang hilang dalam dataset.<br/>
+
+print("\nJumlah Nilai Missing per Kolom:")<br/>
+print(df.isnull().sum())<br/>
+
+Hasil : <br/>
+![image](https://github.com/user-attachments/assets/b3ca0a36-c055-46d8-a5ac-b69c5e2b7dfc)
+
+#### Identifikasi Outliers
+Outliers adalah data yang menyimpang signifikan dari pola umum data dan dapat mempengaruhi hasil analisis statistik serta model prediksi. Identifikasi outliers penting untuk memahami kualitas data dan dapat mempengaruhi pengambilan keputusan dalam analisis lebih lanjut.
+##### 1. Mengidentifikasi Outliers Menggunakan Box Plot
+Box plot adalah alat visual yang umum digunakan untuk mendeteksi outliers. Box plot menunjukkan distribusi data melalui kuartil, median, dan "whiskers" yang menunjukkan rentang data. Outliers biasanya ditunjukkan sebagai titik-titik di luar whiskers.<br/>
+
+**Langkah-langkah**<br/>
+- **Pilih Kolom Numerik** : Pertama, kita memilih kolom-kolom numerik dari dataset yang akan dianalisis untuk outliers.<br/>
+
+numeric_cols = df.select_dtypes (include=np.number .columns.tolist()<br/>
+- **Buat Box Plot untuk Setiap Kolom** : Untuk setiap kolom numerik, kita membuat box plot. Ini memungkinkan kita untuk visualisasi distribusi dan mengidentifikasi nilai-nilai yang menyimpang.
+
+plt.figure(figsize=(15,10))<br/>
+for i, column in enumerate(numeric_cols, 1):<br/>
+    plt.subplot(4, 4, i)<br/>
+    sns.boxplot(y=df[column])<br/>
+    plt.title(f'Box Plot of {column}')<br/>
+plt.tight_layout()<br/>
+plt.show()<br/>
+
+
+
+- 
+- 
