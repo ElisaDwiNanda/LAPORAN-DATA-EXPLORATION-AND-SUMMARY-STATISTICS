@@ -1,4 +1,4 @@
-# LAPORAN-DATA-EXPLORATION-AND-SUMMARY-STATISTICS
+# LAPORAN DATA EXPLORATION AND SUMMARY STATISTICS
 ## Pendahuluan
 ### 1. Latar Belakang
 Penyakit jantung koroner (PJK) adalah salah satu penyebab utama kematian di seluruh dunia. Dengan meningkatnya prevalensi dan dampak serius dari penyakit ini, penting untuk memiliki pemahaman yang mendalam tentang faktor-faktor yang mempengaruhi risiko terkena penyakit jantung. Data kesehatan yang tersedia dapat menyediakan wawasan berharga yang dapat membantu dalam pencegahan dan pengelolaan penyakit ini. Analisis data kesehatan menggunakan teknik statistik dan visualisasi data dapat mengungkapkan pola dan hubungan yang mungkin tidak terlihat secara langsung.
